@@ -6,13 +6,17 @@ fruits = ["苹果", "香蕉", "橙子", "西瓜", "葡萄", "芒果"]
 
 # 提取索引 1 到 4（不包含 4）的元素，即索引 1、2、3
 selected_fruits = fruits[1:4]
-print("截取结果：", selected_fruits)
+print("列表截取结果：", selected_fruits)
 
-# 字符串切片同样适用
+# 字符串切片同样适用（返回新字符串）
 greeting = "Hello, Python!"
 sub_text = greeting[0:5]
-print("截取结果：", sub_text)
+print("字符串截取结果：", sub_text)
 
+# 元组切片同样适用（返回新元组）
+coordinate_tuple = (10, 20, 30, 40, 50)
+sliced_tuple = coordinate_tuple[1:4]
+print("元组截取结果：", sliced_tuple)
 
 # ==================== 2. 省略参数的默认值规则 ====================
 
@@ -29,7 +33,6 @@ print("索引 2 之后的成绩：", after_two_scores)
 # 省略 start 和 stop：截取完整序列，生成浅拷贝副本
 scores_copy = scores[:]
 print("完整副本：", scores_copy)
-
 
 # ==================== 3. 步长（step）、负步长与序列快速反转 ====================
 
@@ -71,6 +74,7 @@ print("回文字符串反转：", reversed_word)
 3. 常用技巧：
    - `[:]`：创建浅拷贝副本；
    - `[::-1]`：快速反转序列。
-4. 容器支持与安全性：
-   - 支持 list, tuple, str 等有序序列；切片越界时自动截断至边界而不会抛出 IndexError。
+4. 支持对象与安全性：
+   - 支持可下标访问索引的序列对象，如列表（list）、元组（tuple）、字符串（str）及 range 对象；
+   - 切片越界时自动截断至边界而不会抛出 IndexError。
 """
