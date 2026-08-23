@@ -30,18 +30,20 @@
 8. **`循环`**
    - 需完整掌握该文件夹内容：阅读 `readloop.md` 并运行 `demo_loop.py`（掌握 `for` 与 `while` 循环、`range()` 计数以及 `break` 与 `continue` 流程控制）。阅读完该文件夹全部内容后进入下一文件夹。
 9. **`索引`**
-   - 需完整掌握该文件夹内容：先阅读 `readindex.md` 掌握正负索引基础概念，接着进入 `遍历` 目录（阅读 `readtraversel.md` 并运行 `demo_traversel.py` 学习序列遍历与 `enumerate`/`zip`），最后进入 `切片` 目录（阅读 `readslice.md` 并运行 `demo_slice.py` 学习正负步长切片提取与序列反转）。阅读完该文件夹全部内容后进入下一文件夹。
-10. **`容器方法`**
+   - 需完整掌握该文件夹内容：先阅读 `readindex.md` 掌握正负索引基础概念，接着进入 `遍历` 目录（阅读 `readtraversel.md` 并运行 `demo_traversel.py` 学习基础序列遍历），最后进入 `切片` 目录（阅读 `readslice.md` 并运行 `demo_slice.py` 学习正负步长切片提取与序列反转）。阅读完该文件夹全部内容后进入下一文件夹。
+10. **`常用遍历`**
+    - 需完整掌握该文件夹内容：阅读 `readtraversal.md` 并运行 `demo_traversal.py`（掌握 `range()` 范围与步长遍历、`enumerate()` 带索引遍历、`zip()` 多序列并行遍历以及字典的 `keys()`、`values()`、`items()` 遍历）。阅读完该文件夹全部内容后进入下一文件夹。
+11. **`容器方法`**
     - 需完整掌握该文件夹内容：先阅读 `readmethod.md` 掌握通用操作与各容器独有方法概览，随后依次学习 `method_general.py`（常用通用操作） -> `method_list.py`（列表方法） -> `method_str.py`（字符串方法） -> `method_dict.py`（字典方法） -> `method_set.py`（集合方法）。阅读完该文件夹全部内容后进入下一文件夹。
-11. **`交互与防报错`**
+12. **`交互与防报错`**
     - 需完整掌握该文件夹内容：先学习用户输入交互（阅读 `readinput.md` 并运行 `demo_input.py`），再学习异常捕获机制（阅读 `readerror.md` 并运行 `demo_error.py`），最后查阅 `readerrortype.md` 掌握常见报错类型与排查方法。阅读完该文件夹全部内容后进入下一文件夹。
-12. **`输出格式`**
+13. **`输出格式`**
     - 需完整掌握该文件夹内容：阅读 `readformat.md` 并运行 `demo_format.py`（掌握浮点数定点 `:.2f`、通用格式 `:g`、科学计数法、千位分隔符以及对齐填充等输出格式化方法）。阅读完该文件夹全部内容后进入下一文件夹。
-13. **`函数`**
+14. **`函数`**
     - 需完整掌握该文件夹内容：先进入 `定义函数` 目录（阅读 `readfunction.md` 并运行 `demo_function.py` 掌握 `def`、默认参数、类型注解与返回值），再进入 `匿名函数` 目录（阅读 `readlambda.md` 并运行 `demo_lambda.py` 掌握 `lambda` 表达式与应用场景）。阅读完该文件夹全部内容后进入下一文件夹。
-14. **`文件读写`**
+15. **`文件读写`**
     - 需完整掌握该文件夹内容：阅读 `readfile.md` 并运行 `demo_file.py`（掌握文件对象概念、`open`/`close` 与 `with open` 上下文管理、打开模式以及 `encoding="utf-8"` 字符编码）。阅读完该文件夹全部内容后，即可完成所有 Python 核心基础储备。
-15. **`标准库` 及后续按需拓展**
+16. **`标准库` 及后续按需拓展**
     - 完成上述基础知识积累后，可进入 `标准库` 模块：先阅读 `readimport.md` 掌握模块导入机制（`import a`、`from a import b` 与 `from a import *`），随后根据实际学习与开发需求，按需探索各个常用标准库（`time`、`datetime`、`math`、`string`、`random`、`json`）或在根目录 `practice.py` 中进行自由编程实践。
 
 ### 按需学习路线（进阶查阅）
@@ -60,7 +62,8 @@
 | `类型转换` | 隐式类型转换、显式类型转换及 `type()` 类型检查 | `readconversion.md`、`readtypecheck.md`、`demo_conversion.py` |
 | `判断式` | 比较运算（`==`、`>` 等）与逻辑运算（`and`、`or`、`not`） | `比较运算/`、`逻辑运算/` |
 | `循环` | `for` 循环、`while` 循环、`break` 与 `continue` | `readloop.md`、`demo_loop.py` |
-| `索引` | 正负索引、序列遍历（`enumerate`、`zip`）与切片提取（`[start:stop:step]`） | `readindex.md`、`遍历/`、`切片/` |
+| `索引` | 正负索引、基础遍历与切片提取（`[start:stop:step]`） | `readindex.md`、`遍历/`、`切片/` |
+| `常用遍历` | `range`、`enumerate`、`zip` 及字典 `keys`/`values`/`items` 遍历 | `readtraversal.md`、`demo_traversal.py` |
 | `容器方法` | 列表、集合、字符串、字典等容器的内置操作方法与通用操作 | `readmethod.md`、`method_*.py` |
 | `交互与防报错` | `input()` 用户输入、`try-except-finally` 异常捕获与常见报错类型解析 | `readinput.md`、`readerror.md`、`readerrortype.md`、`demo_*.py` |
 | `输出格式` | 字符串格式化（`:.2f`、`:g`、对齐、填充与进制表示） | `readformat.md`、`demo_format.py` |
