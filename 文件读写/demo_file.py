@@ -22,7 +22,6 @@ manual_content = read_file.read()
 read_file.close()
 print("手动读取文件内容：\n" + manual_content)
 
-
 # ==================== 2. with open 上下文管理器与 'w' 覆盖写入模式 ====================
 
 print("--- 2. with open 上下文管理器与 'w' 模式 ---")
@@ -34,7 +33,6 @@ with open(demo_file_path, mode="w", encoding="utf-8") as file:
     file.write("模式：'w' 覆盖写入模式已清空原有内容\n")
 
 print("使用 with open('w') 写入完成（文件已自动关闭）。")
-
 
 # ==================== 3. with open 与 'r' 只读模式 ====================
 
@@ -59,7 +57,6 @@ with open(demo_file_path, mode="r", encoding="utf-8") as file:
     for line_number, line_content in enumerate(file, start=1):
         print(f"行 {line_number}: {line_content.strip()}")
 
-
 # ==================== 4. with open 与 'a' 追加写入模式 ====================
 
 print("\n--- 4. with open 与 'a' 追加写入模式 ---")
@@ -75,7 +72,6 @@ print("追加写入完成。")
 with open(demo_file_path, mode="r", encoding="utf-8") as file:
     updated_content = file.read()
     print("追加后的文件完整内容：\n" + updated_content)
-
 
 # ==================== 5. 编码 encoding="utf-8" 说明与演示 ====================
 
@@ -104,7 +100,7 @@ print("演示临时文件已清理完毕。")
 """
 文件读写核心总结：
 1. 文件对象概念：
-   - 指向文件的变量是文件对象（File Object），读写操作本质上是通过该对象的方法（如 `write()`、`read()`、`readline()`、`close()`）对底层资源进行调用。
+   - 基础机制是以一个变量指向 open() 创建的文件对象（File Object），后续沿用“变量即文件对象”的表述。读写操作本质上是通过该变量调用文件对象的方法（如 `write()`、`read()`、`readline()`、`close()`）对底层资源进行操作。
 2. open/close vs with open：
    - 基础 `open` 需手动调用 `close()` 释放资源；
    - `with open(...) as file:` 上下文管理器在退出代码块时自动安全关闭文件并刷新缓冲区。
