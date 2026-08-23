@@ -16,10 +16,10 @@
 - **`e`**：自然对数的底数 $e \approx 2.718281828459045$
 
 ```python
-from math import pi, e
+import math
 
-print("圆周率 pi：", pi)
-print("自然常数 e：", e)
+print("圆周率 pi：", math.pi)
+print("自然常数 e：", math.e)
 ```
 
 ---
@@ -29,9 +29,9 @@ print("自然常数 e：", e)
 - **`factorial(n)`**：计算非负整数 $n$ 的阶乘（即 $n! = n \times (n-1) \times \dots \times 1$）。$0! = 1$。
 - **示例**：
   ```python
-  from math import factorial
+  import math
 
-  result = factorial(5)  # 5! = 5 * 4 * 3 * 2 * 1 = 120
+  result = math.factorial(5)  # 5! = 5 * 4 * 3 * 2 * 1 = 120
   print("5 的阶乘：", result)
   ```
 
@@ -43,31 +43,31 @@ print("自然常数 e：", e)
 - **`isqrt(n)`**：计算非负整数 $n$ 的整数平方根（向下取整的整数值）。
 - **示例**：
   ```python
-  from math import isqrt, sqrt
+  import math
 
-  print("16 的平方根：", sqrt(16))      # 输出 4.0
-  print("20 的浮点平方根：", sqrt(20))  # 输出 4.47213595499958
-  print("20 的整数平方根：", isqrt(20)) # 输出 4
+  print("16 的平方根：", math.sqrt(16))      # 输出 4.0
+  print("20 的浮点平方根：", math.sqrt(20))  # 输出 4.47213595499958
+  print("20 的整数平方根：", math.isqrt(20)) # 输出 4
   ```
 
 ---
 
 ### 4. 角度与弧度转换（`degrees`、`radians`）
 
-在数学与计算机几何中，角度有**度数（Degree）**和**弧度（Radian）**两种衡量体系：$180^\circ = \pi \text{ 弧度}$。
+在数学与计算机几何中，角度有**度数（Degree） **和**弧度（Radian）**两种衡量体系：$180^\circ = \pi \text{ 弧度}$。
 
 - **`degrees(x)`**：将弧度 $x$ 转换为角度值。
 - **`radians(x)`**：将角度 $x$ 转换为弧度值。
 - **示例**：
   ```python
-  from math import degrees, pi, radians
+  import math
 
   # 将 pi 弧度转为角度
-  angle = degrees(pi)
+  angle = math.degrees(math.pi)
   print("pi 弧度对应的角度：", angle)  # 输出 180.0
 
   # 将 90 度转为弧度
-  rad = radians(90)
+  rad = math.radians(90)
   print("90 度对应的弧度：", rad)      # 输出 1.5707963267948966 (即 pi / 2)
   ```
 
@@ -77,7 +77,8 @@ print("自然常数 e：", e)
 
 #### 默认弧度参数的重要说明
 
-**在 Python 的 `math` 模块中，所有三角函数（如 `sin`、`cos`、`tan` 等）接收的参数均默认以“弧度（Radian）”为单位，而非日常生活中常用的“角度（Degree）”。**
+**在 Python 的 `math` 模块中，所有三角函数（如 `sin`、`cos`、`tan`
+等）接收的参数均默认以“弧度（Radian）”为单位，而非日常生活中常用的“角度（Degree）”。**
 
 如果直接传入度数值（例如 `sin(30)`），Python 会将其视为“30 弧度”进行计算，而非“30 度”。
 
@@ -90,22 +91,22 @@ print("自然常数 e：", e)
 - **`tan(x)`**：计算弧度 $x$ 的正切值。
 - **示例**：
   ```python
-  from math import cos, pi, radians, sin, tan
+  import math
 
   # 计算 30 度的正弦值（sin(30°) = 0.5）
-  # 步骤：先将 30 度转为弧度，再调用 sin()
-  rad_30 = radians(30)
-  sin_value = sin(rad_30)
+  # 步骤：先将 30 度转为弧度，再调用 math.sin()
+  rad_30 = math.radians(30)
+  sin_value = math.sin(rad_30)
   print("sin(30°)：", sin_value)  # 输出约 0.49999999999999994 (即 0.5)
 
   # 计算 60 度的余弦值（cos(60°) = 0.5）
-  rad_60 = radians(60)
-  cos_value = cos(rad_60)
+  rad_60 = math.radians(60)
+  cos_value = math.cos(rad_60)
   print("cos(60°)：", cos_value)
 
   # 计算 45 度的正切值（tan(45°) = 1.0）
-  rad_45 = radians(45)
-  tan_value = tan(rad_45)
+  rad_45 = math.radians(45)
+  tan_value = math.tan(rad_45)
   print("tan(45°)：", tan_value)
   ```
 

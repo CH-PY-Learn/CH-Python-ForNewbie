@@ -14,11 +14,11 @@
 
 - **功能**：返回闭区间 $[a, b]$ 内的一个随机整数，满足 $a \le n \le b$（包含两端边界值 $a$ 和 $b$）。
 - **参数说明**：
-  - `a: int`：区间的下界整数（包含）。
-  - `b: int`：区间的上界整数（包含）。
+    - `a: int`：区间的下界整数（包含）。
+    - `b: int`：区间的上界整数（包含）。
 - **参数类型要求**：
-  - 参数 `a` 和 `b` 必须为整数类型。若传入浮点数或非数值类型会抛出 `TypeError`。
-  - 参数必须满足 $a \le b$，若 $a > b$ 会抛出 `ValueError: empty range for randrange()`。
+    - 参数 `a` 和 `b` 必须为整数类型。若传入浮点数或非数值类型会抛出 `TypeError`。
+    - 参数必须满足 $a \le b$，若 $a > b$ 会抛出 `ValueError: empty range for randrange()`。
 - **示例**：
   ```python
   from random import randint
@@ -38,11 +38,11 @@
 
 - **功能**：生成并在区间 $[a, b]$ 内返回一个随机浮点数（实数）。
 - **参数说明**：
-  - `a: float | int`：区间的一个端点数值。
-  - `b: float | int`：区间的另一个端点数值。
+    - `a: float | int`：区间的一个端点数值。
+    - `b: float | int`：区间的另一个端点数值。
 - **参数类型与行为说明**：
-  - 参数可接收整数或浮点数，返回值类型统一为 `float`。
-  - 端点大小无严格顺序限制：无论 $a \le b$ 还是 $a > b$，`uniform(a, b)` 均能在两端点之间生成均匀分布的浮点数。
+    - 参数可接收整数或浮点数，返回值类型统一为 `float`。
+    - 端点大小无严格顺序限制：无论 $a \le b$ 还是 $a > b$，`uniform(a, b)` 均能在两端点之间生成均匀分布的浮点数。
 - **示例**：
   ```python
   from random import uniform
@@ -57,13 +57,15 @@
 
 ### 3. `choice(seq)`：从序列中随机选取单个元素
 
-- **功能**：从给定的非空序列中随机返回**一个**元素。
+- **功能**：从给定的非空序列中随机返回 **一个**元素。
 - **参数说明**：
-  - `seq: Sequence[T]`：待选择的序列对象。
+    - `seq: Sequence[T]`：待选择的序列对象。
 - **参数类型与序列要求**：
-  - **必须是序列类型（Sequence）**：即支持索引访问（`__getitem__`）与长度计算（`__len__`）的数据类型，包括列表（`list`）、元组（`tuple`）、字符串（`str`）、`range` 对象等。
-  - **不支持无序容器**：若传入集合（`set`）或字典（`dict`），会直接抛出 `KeyError` 或 `TypeError`。若需要从集合中选择，需先将其转换为 `list` 或 `tuple`。
-  - **序列不能为空**：若传入空序列（如 `[]`、`""`、`()`），会抛出 `IndexError: Cannot choose from an empty sequence`。
+    - **必须是序列类型（Sequence）**：即支持索引访问与长度计算的数据类型，包括列表（`list`）、元组（
+      `tuple`）、字符串（`str`）、`range` 对象等。
+    - **不支持无序容器**：若传入集合（`set`）或字典（`dict`），会直接抛出 `KeyError` 或 `TypeError`。若需要从集合中选择，需先将其转换为
+      `list` 或 `tuple`。
+    - **序列不能为空**：若传入空序列（如 `[]`、`""`、`()`），会抛出 `IndexError: Cannot choose from an empty sequence`。
 - **示例**：
   ```python
   from random import choice
@@ -88,16 +90,18 @@
 
 ### 4. `choices(population, weights=None, k=1)`：有放回随机抽样
 
-- **功能**：从候选群体中进行**有放回抽样（Sampling with Replacement）**，并返回包含抽取元素的**列表**。
+- **功能**：从候选群体中进行 **有放回抽样（Sampling with Replacement）**，并返回包含抽取元素的 **列表**。
 - **参数说明**：
-  - **`population: Sequence[T] | Iterable[T]`**：待抽取的候选元素群体（序列或可迭代对象）。
-  - **`k: int`**：抽样的次数（即返回列表的长度），默认为 `1`。
-  - **`weights: Sequence[float | int] | None`**（可选）：候选元素对应的相对权重序列，长度必须与 `population` 一致。
-  - **`cum_weights: Sequence[float | int] | None`**（可选）：候选元素的累加权重序列。注意 `weights` 与 `cum_weights` 不能同时传入。
+    - **`population: Sequence[T] | Iterable[T]`**：待抽取的候选元素群体（序列或可迭代对象）。
+    - **`k: int`**：抽样的次数（即返回列表的长度），默认为 `1`。
+    - **`weights: Sequence[float | int] | None`**（可选）：候选元素对应的相对权重序列，长度必须与 `population` 一致。
+    - **`cum_weights: Sequence[float | int] | None`**（可选）：候选元素的累加权重序列。注意 `weights` 与 `cum_weights`
+      不能同时传入。
 - **`k` 参数的功能与抽样机制**：
-  - **`k` 的作用**：指定从群体中独立抽取元素的总数量。若指定 `k=5`，则执行 5 次独立抽取，将这 5 个结果组合为一个列表返回。
-  - **有放回抽样机制**：每次抽取后候选元素并不会从原池子中移除，下一次抽取依然面对完整的群体。因此在返回的列表中，**同一个元素可能被多次重复抽中**。
-  - **返回值类型**：无论 `k` 值为多少（即使 `k=1`），`choices()` 的返回值始终是一个**列表（`list`）**。
+    - **`k` 的作用**：指定从群体中独立抽取元素的总数量。若指定 `k=5`，则执行 5 次独立抽取，将这 5 个结果组合为一个列表返回。
+    - **有放回抽样机制**：每次抽取后候选元素并不会从原池子中移除，下一次抽取依然面对完整的群体。因此在返回的列表中，
+      **同一个元素可能被多次重复抽中**。
+    - **返回值类型**：无论 `k` 值为多少（即使 `k=1`），`choices()` 的返回值始终是一个 **列表（`list`）**。
 - **示例**：
   ```python
   from random import choices
@@ -140,7 +144,7 @@ print("打乱后的卡牌顺序：", card_deck)
 
 ### 2. `sample(population, k)`：无放回抽样
 
-- **功能**：从候选群体中抽取 $k$ 个**互不重复**的独立元素。
+- **功能**：从候选群体中抽取 $k$ 个 **互不重复**的独立元素。
 - **与 `choices` 的区别**：`sample` 为无放回抽样，抽出的每个元素在结果中只出现一次；且要求 $k$ 不能超过候选群体的总长度。
 
 ```python
