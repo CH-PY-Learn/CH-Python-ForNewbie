@@ -7,6 +7,7 @@
 JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛应用于网络 API 传输、配置文件存储以及跨平台数据持久化等场景。
 
 `json` 模块提供了在 **Python 内存对象**（如字典、列表等）与 **JSON 文本数据**（字符串或文件流）之间进行双向转换的能力：
+
 - **序列化（Serialization / 编码）**：将 Python 原生对象转换为 JSON 格式文本。
 - **反序列化（Deserialization / 解码）**：将 JSON 格式文本解析还原为 Python 原生对象。
 
@@ -16,8 +17,10 @@ JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛
 
 `json` 模块的核心 API 由 4 个函数构成，其命名后缀体现了处理对象的类型差异：
 
-- **带 `s` 后缀（`dumps` / `loads`）**：`s` 代表 **String（字符串）**。专门用于在**内存中的 Python 对象**与 **JSON 格式字符串（`str`）**之间进行相互转换。
-- **不带 `s` 后缀（`dump` / `load`）**：专门用于在**内存中的 Python 对象**与**支持读写的文件对象（File-like Stream Object）**之间进行相互转换。
+- **带 `s` 后缀（`dumps` / `loads`）**：`s` 代表 **String（字符串）**。专门用于在 **内存中的 Python 对象**与 **JSON 格式字符串（
+  `str`）**之间进行相互转换。
+- **不带 `s` 后缀（`dump` / `load`）**：专门用于在 **内存中的 Python 对象**与**支持读写的文件对象（File-like Stream
+  Object）**之间进行相互转换。
 
 ---
 
@@ -27,9 +30,11 @@ JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛
 
 - **功能**：将传入的 Python 原生数据对象转换并返回为标准 JSON 格式的字符串。
 - **参数说明**：
-  - **`obj: Any`**：待转换的 Python 对象（通常为 `dict`、`list` 等）。
-  - **`indent: int | None`**：格式化缩进空格数。不放该参数时默认值为 `None`，生成单行紧凑且无额外换行的 JSON 文本；若传入非负整数（如 `indent=4`）或字符串，则生成按指定空格层级缩进与换行的美化 JSON 文本。
-  - **`ensure_ascii: bool`**：是否将非 ASCII 字符全部转义。不放该参数时默认值为 `True`，会将所有非 ASCII 字符（如中文、表情符号）转义为 `\uXXXX` 格式；若设为 `False`，则直接保留原生中文字符输出。
+    - **`obj: Any`**：待转换的 Python 对象（通常为 `dict`、`list` 等）。
+    - **`indent: int | None`**：格式化缩进空格数。不放该参数时默认值为 `None`，生成单行紧凑且无额外换行的 JSON 文本；若传入非负整数（如
+      `indent=4`）或字符串，则生成按指定空格层级缩进与换行的美化 JSON 文本。
+    - **`ensure_ascii: bool`**：是否将非 ASCII 字符全部转义。不放该参数时默认值为 `True`，会将所有非 ASCII 字符（如中文、表情符号）转义为
+      `\uXXXX` 格式；若设为 `False`，则直接保留原生中文字符输出。
 - **返回值**：标准 JSON 格式的字符串（`str` 类型）。
 - **示例**：
   ```python
@@ -57,11 +62,11 @@ JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛
 
 - **功能**：解析包含合法 JSON 文本的字符串，并将其还原为对应的 Python 原生数据类型（通常为 `dict` 或 `list`）。
 - **参数说明**：
-  - **`s: str | bytes | bytearray`**：包含 JSON 数据的字符串或字节序列。
+    - **`s: str | bytes | bytearray`**：包含 JSON 数据的字符串或字节序列。
 - **参数类型要求与常见异常**：
-  - 参数必须为符合标准 JSON 规范的文本。
-  - JSON 标准中键名和字符串值**必须使用双引号 `"` 包裹**，不能使用 Python 的单引号 `'`。
-  - 若传入格式非法字符串或末尾存在多余逗号，会抛出 `json.JSONDecodeError` 异常。
+    - 参数必须为符合标准 JSON 规范的文本。
+    - JSON 标准中键名和字符串值 **必须使用双引号 `"` 包裹**，不能使用 Python 的单引号 `'`。
+    - 若传入格式非法字符串或末尾存在多余逗号，会抛出 `json.JSONDecodeError` 异常。
 - **返回值**：解析还原后的 Python 原生对象（如 `dict`、`list`、`int`、`float` 等）。
 - **示例**：
   ```python
@@ -82,10 +87,12 @@ JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛
 
 - **功能**：将 Python 原生对象直接序列化并写入到支持 `.write()` 方法的文本文件对象中。
 - **参数说明**：
-  - **`obj: Any`**：待序列化的 Python 对象。
-  - **`fp: TextIO`**：指向目标文件的文本文件对象（由 `open(..., mode="w", encoding="utf-8")` 返回）。
-  - **`indent: int | None`**：格式化缩进空格数。不放该参数时默认值为 `None`，向文件写入单行紧凑文本；若传入非负整数（如 `indent=4`），则写入带格式化缩进与换行的美化文本。
-  - **`ensure_ascii: bool`**：是否转义非 ASCII 字符。不放该参数时默认值为 `True`，将非 ASCII 字符转义为 `\uXXXX` 格式写入；若设为 `False`，则直接保留原生中文字符写入。
+    - **`obj: Any`**：待序列化的 Python 对象。
+    - **`fp: TextIO`**：指向目标文件的文本文件对象（由 `open(..., mode="w", encoding="utf-8")` 返回）。
+    - **`indent: int | None`**：格式化缩进空格数。不放该参数时默认值为 `None`，向文件写入单行紧凑文本；若传入非负整数（如
+      `indent=4`），则写入带格式化缩进与换行的美化文本。
+    - **`ensure_ascii: bool`**：是否转义非 ASCII 字符。不放该参数时默认值为 `True`，将非 ASCII 字符转义为 `\uXXXX` 格式写入；若设为
+      `False`，则直接保留原生中文字符写入。
 - **返回值**：`None`。
 - **示例**：
   ```python
@@ -107,7 +114,7 @@ JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛
 
 - **功能**：从支持 `.read()` 方法的文本文件对象中读取 JSON 文本，并直接解析还原为 Python 原生对象。
 - **参数说明**：
-  - **`fp: TextIO`**：指向包含有效 JSON 数据文件的文本文件对象（由 `open(..., mode="r", encoding="utf-8")` 返回）。
+    - **`fp: TextIO`**：指向包含有效 JSON 数据文件的文本文件对象（由 `open(..., mode="r", encoding="utf-8")` 返回）。
 - **返回值**：解析还原后的 Python 原生对象（如 `dict` 或 `list`）。
 - **示例**：
   ```python
@@ -137,9 +144,12 @@ JSON 是一种轻量级、跨语言、纯文本的数据交换标准，被广泛
 | **`None`**              | **`null`**    | 空值，JSON 中对应为 `null`                     |
 
 > **注意**：
-> 1. Python 中的元组（`tuple`）在序列化为 JSON 时会被统一转换为 JSON 的 `array`，反序列化回来时将成为 Python 的列表（`list`）。
-> 2. JSON 对象的键名（Key）在规范中**必须为字符串类型**。如果 Python 字典的键为整数（如 `{1: "a"}`），在序列化后键名会被自动转为字符串 `"1"`。
-> 3. 集合（`set`）、函数对象或自定义类实例无法直接被默认序列化器转换，若直接传入会抛出 `TypeError: Object of type set is not JSON serializable`。
+> 1. Python 中的元组（`tuple`）在序列化为 JSON 时会被统一转换为 JSON 的 `array`，反序列化回来时将成为 Python 的列表（
+     `list`）。
+> 2. JSON 对象的键名（Key）在规范中 **必须为字符串类型**。如果 Python 字典的键为整数（如 `{1: "a"}`），在序列化后键名会被自动转为字符串
+     `"1"`。
+> 3. 集合（`set`）、函数对象或自定义类实例无法直接被默认序列化器转换，若直接传入会抛出
+     `TypeError: Object of type set is not JSON serializable`。
 
 ---
 

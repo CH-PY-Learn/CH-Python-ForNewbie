@@ -1,6 +1,6 @@
-# 容器通用方法：展示 count, index, len, in, reversed 与 clear
+# 容器常用的通用操作：展示 count, index, len, in, reversed 与 clear
 
-# 通用方法可对一般的容器进行一样的操作，本文件只展示 md 文件中提到的方法
+# 通用操作可对一般的容器进行操作，本文件只展示 md 文件中提到的常用操作
 
 from_one_to_hundred = """
 12345678910111213141516171819202122232425262728293031323334353637383
@@ -21,7 +21,7 @@ names = ["小明", "小红", "小刚"]
 names.index("小红")  # index 方法，返回容器中指定元素的索引。
 print(names.index("小红"))
 
-length_names = len(names)  # len 方法，返回容器的长度。
+length_names = len(names)  # len 函数，返回容器的长度。
 print(length_names)
 
 
@@ -33,14 +33,14 @@ if "小明" in names:  # in 运算符，判断容器中是否包含指定元素�
 
 # ==================== 4. reversed 与 clear：逆序与清空 ====================
 
-names = list(reversed(names))  # reversed 方法，返回容器的逆序。
+names = list(reversed(names))  # reversed 函数，返回容器的逆序。
 print(names)
 
 names.clear()  # clear 方法，清空容器中的所有元素。
 print(names)
 
 """
-通用容器方法核心总结：
+通用容器操作核心总结：
 1. 统计与定位：
    - `count(x)`：统计元素 x 在容器中出现的次数。
    - `index(x)`：返回元素 x 在序列中首次出现的索引位置。

@@ -7,7 +7,8 @@
 ## Python 安装与环境配置
 
 - **Python 版本**：推荐使用 Python 3.12 版本。
-- **安装包下载**：[点击下载 Python 3.12 (Windows 64-bit)](https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe)
+-
+**安装包下载**：[点击下载 Python 3.12 (Windows 64-bit)](https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe)
 - **安装注意事项**：在安装界面中，务必勾选 `"Add python.exe to PATH"` 选项，以便在终端中直接使用 Python 命令。
 
 ### Python 版本趋势

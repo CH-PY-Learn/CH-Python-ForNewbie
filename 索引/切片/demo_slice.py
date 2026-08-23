@@ -44,6 +44,14 @@ print("每隔一项提取：", even_index_numbers)
 reverse_partial = numbers[7:2:-1]
 print("逆向切片结果：", reverse_partial)
 
+# 负步长下省略 start：从序列末尾开始反向截取到索引 5 之前
+reverse_omit_start = numbers[:5:-1]
+print("负步长省略 start：", reverse_omit_start)
+
+# 负步长下省略 stop：从索引 4 开始一直反向截取到序列开头（包含索引 0）
+reverse_omit_stop = numbers[4::-1]
+print("负步长省略 stop：", reverse_omit_stop)
+
 # 经典技巧：利用负步长 [::-1] 快速反转序列
 reversed_numbers = numbers[::-1]
 print("完整列表反转：", reversed_numbers)
@@ -56,9 +64,10 @@ print("回文字符串反转：", reversed_word)
 切片核心总结：
 1. 基本语法与区间：
    - `sequence[start:stop:step]`，提取区间为 [start, stop) 左闭右开。
-2. 缺省默认值规则：
-   - 正步长时：start 默认为 0，stop 默认为 len(sequence)；
-   - 负步长时：start 默认为 -1（序列末尾），stop 默认为序列开头之前。
+2. 缺省与默认规则：
+   - 省略 step 时，默认步长始终为 1（正向逐个提取）；
+   - 当 step > 0 时：省略 start 默认为序列开头（索引 0），省略 stop 默认为序列末尾（包含最后一项）；
+   - 当 step < 0 时：省略 start 会从序列末尾开始，省略 stop 会一直反向取到序列开头（包含第 0 项）。
 3. 常用技巧：
    - `[:]`：创建浅拷贝副本；
    - `[::-1]`：快速反转序列。
